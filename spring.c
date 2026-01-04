@@ -19,49 +19,13 @@
 
 float x_mass = WIDTH*0.7; // local inicial da massa
 float velocity = 20; // velocidade inicial da massa
-/*
-typedef struct{
-    Vector2 start, end;
-} springElement;
 
-springElement spring_elem[NUM_SPRING_ELEMENTS];
-*/
 void draw_floor()
 {
     Vector2 start = {0,FLOOR_Y};
     Vector2 end = {WIDTH, FLOOR_Y};
     DrawLineEx(start, end, THICK, GRAY);
 }
-/*
-void draw_spring()
-{
-     TODO(feito): Reescrever essa função usando a função DrawLineStrip, que desenha linhas
-    com base em um vetor Vector2 de pontos, conectando esses pontos com linhas
-    
-    float x_springdelta = x_mass / NUM_SPRING_ELEMENTS;// posição máxima do eixo 'X' dos elementos da mola
-    float y_end = sqrt(pow(SPRING_ELEM_LENGHT, 2) - pow(x_springdelta, 2));// posição máxima do eixo 'Y' dos elementos de mola
-    Vector2 start;
-    Vector2 end;
-    for(int i=0; i<NUM_SPRING_ELEMENTS; i++)
-    {
-        if(i%2 == 0)
-        {
-            start = (Vector2){x_springdelta * i, 
-                    FLOOR_Y-MASS_SIDE/2+SPRING_ELEM_LENGHT/2};
-            end = (Vector2){start.x + x_springdelta, start.y - y_end};
-            spring_elem[i] = (springElement){start, end};
-            DrawLineEx(start, end, 3, GRAY);
-        } 
-        else
-        {
-            start = spring_elem[i-1].end;
-            end = (Vector2){start.x + x_springdelta, start.y + y_end};
-            spring_elem[i] = (springElement){start, end};
-            DrawLineEx(start, end, 3, GRAY);
-        }
-    }
-}
-*/
 
 void draw_spring()
 {
