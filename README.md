@@ -2,7 +2,7 @@ Simulação simples de um sistema massa-mola feita em C usando a biblioteca exte
 
 Pretendo fazer um criador de gráfico para criar um gráfico do movimento da massa, e melhorar as váriaveis da simulaçao.
 
-Precisa-se instalar a biblioteca no computador 'https://github.com/raysan5/raylib/wiki'
+Precisa-se instalar a biblioteca no computador 'https://github.com/raysan5/raylib/wiki'  
 Para compilar, precisa usar as flags da biblioteca raylib. 
 
 - Por exemplo, o comando gcc que usava para compilar e rodar era:
