@@ -6,6 +6,6 @@ Precisa-se instalar a biblioteca no computador 'https://github.com/raysan5/rayli
 Para compilar, precisa usar as flags da biblioteca raylib. 
 
 - Por exemplo, o comando gcc que usava para compilar e rodar era:
-gcc -Wall -Wextra -g3 -std=c2x -lm spring.c -o output/spring -lraylib -lGL -lm -lpthread -ldl -lrt -lX11 && ./output/spring
+- gcc -Wall -Wextra -g3 -std=c2x -lm spring.c -o output/spring -lraylib -lGL -lm -lpthread -ldl -lrt -lX11 && ./output/spring
 
 Um makefile com as flags da biblioteca (-lraylib -lGL -lm -lpthread -ldl -lrt -lX11) é mais prático para compilar o programa.
