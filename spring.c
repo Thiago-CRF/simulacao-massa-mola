@@ -14,8 +14,8 @@
 #define NUM_SPRING_ELEMENTS 15 // numero de elementos da mola
 #define SPRING_ELEM_LENGHT 50 // tamanho dos elementos da mola
 #define X_REST (WIDTH/3) // local de descanso da mola
-#define K 50 // constante elastica
-#define FRICTION 0.8 // constante de atrito
+#define K 200 // constante elastica
+#define FRICTION 2 // constante de atrito
 
 float x_mass = WIDTH*0.7; // local inicial da massa
 float velocity = 20; // velocidade inicial da massa
