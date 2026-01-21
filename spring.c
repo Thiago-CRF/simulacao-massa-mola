@@ -53,6 +53,36 @@ void draw_mass()
     DrawRectangleRec(rect, BLUE);
 }
 
+// se o mouse estiver fora da posição da massa retorna 0, se não retorna 1
+int is_mouse_on_mass()
+{
+    Vector2 mouse_position = GetMousePosition();
+
+    if(mouse_position.x < x_mass || mouse_position.x > x_mass+MASS_SIDE)
+    {
+        return 0;
+    }
+    else if(mouse_position.y < FLOOR_Y-MASS_SIDE-THICK/2 || mouse_position.y > (FLOOR_Y-MASS_SIDE-(THICK/2) + MASS_SIDE))
+    {
+        return 0;
+    }
+    else
+        return 1;
+}
+
+void control_mass_xPosition()
+{
+    Vector2 mouse_position = GetMousePosition();
+
+    int new_x = mouse_position.x - MASS_SIDE/2;
+
+    x_mass = new_x;
+
+    draw_mass();
+    draw_spring();
+    EndDrawing();
+}
+
 int main()
 {
     InitWindow(WIDTH, HEIGHT, "Simulação sistema massa em mola");
@@ -65,11 +95,22 @@ int main()
     {
         BeginDrawing();
             ClearBackground(BLACK);
-            DrawFPS(10, 10);
+            //DrawFPS(10, 10);
             // delta de tempo para calcular com base no FPS da simulação
             delta_t = GetFrameTime();
-            DrawText("Simulação massa em mola", WIDTH*0.37, HEIGHT*0.1, 20, BLUE);
+            //DrawText("Simulação massa em mola", WIDTH*0.37, HEIGHT*0.1, 20, BLUE);
             draw_floor();
+
+            // desenha com base no mouse se clicar na massa
+            if(is_mouse_on_mass() == 1)
+            {
+                if(IsMouseButtonDown(MOUSE_BUTTON_LEFT))
+                {
+                    control_mass_xPosition();
+                    continue;
+                }
+            }
+
             // fricção no momento com base na velocidade
             current_friction = velocity*FRICTION;
             //aceleração: equação sistema massa mola, com fricção
